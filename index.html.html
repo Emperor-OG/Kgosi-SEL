@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voices Over Bullying | Anti‑Abuse Campaign</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #E8F4F2;
+      color: #1e2f2f;
+      line-height: 1.5;
+    }
+    :root {
+      --deep-teal: #1A5F5F;
+      --ocean-blue: #2E86C1;
+      --seafoam: #A3D4C6;
+      --soft-mint: #E8F4F2;
+      --dark-slate: #2C3E50;
+      --dark-teal: #0B3B3B;
+      --white: #ffffff;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem;
+    }
+    .hero {
+      background: linear-gradient(135deg, #0B3B3B 0%, #1A5F5F 100%);
+      color: white;
+      padding: 2rem 2rem 1.8rem;
+      border-radius: 0 0 2rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .hero h1 i {
+      background-color: #A3D4C6;
+      color: #0B3B3B;
+      padding: 10px;
+      border-radius: 50%;
+      font-size: 1.8rem;
+    }
+    .hero p {
+      margin-top: 0.6rem;
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+    .school-badge {
+      background-color: #2E86C1;
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-top: 0.8rem;
+    }
+    .tabs-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid var(--seafoam);
+      padding-bottom: 0.5rem;
+    }
+    .tab-btn {
+      background: transparent;
+      border: none;
+      padding: 0.7rem 1.2rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--dark-slate);
+      cursor: pointer;
+      border-radius: 40px;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .tab-btn i {
+      color: var(--ocean-blue);
+    }
+    .tab-btn:hover {
+      background-color: var(--seafoam);
+    }
+    .tab-btn.active {
+      background-color: var(--deep-teal);
+      color: white;
+    }
+    .tab-btn.active i {
+      color: white;
+    }
+    .tab-panel {
+      display: none;
+      background: var(--white);
+      border-radius: 28px;
+      padding: 2rem;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+      animation: fade 0.25s ease;
+    }
+    .tab-panel.active-panel {
+      display: block;
+    }
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(8px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    h2 {
+      color: var(--dark-teal);
+      border-left: 6px solid var(--ocean-blue);
+      padding-left: 1rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+    h3 {
+      color: var(--deep-teal);
+      margin: 1.2rem 0 0.6rem;
+    }
+    .team-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 1.5rem 0;
+    }
+    .team-card {
+      background: #f0f7f5;
+      border-radius: 24px;
+      padding: 1.2rem;
+      flex: 1;
+      min-width: 200px;
+      text-align: center;
+      border: 1px solid var(--seafoam);
+    }
+    .team-card i {
+      font-size: 3rem;
+      color: var(--deep-teal);
+      background: #cbe7e0;
+      padding: 0.8rem;
+      border-radius: 60px;
+    }
+    .team-card h4 {
+      margin-top: 12px;
+      font-weight: 700;
+    }
+    .table-plan {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fefefe;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .table-plan th, .table-plan td {
+      border: 1px solid #cbdcd9;
+      padding: 0.9rem;
+      vertical-align: top;
+      text-align: left;
+    }
+    .table-plan th {
+      background-color: var(--deep-teal);
+      color: white;
+      font-weight: 600;
+    }
+    .resource-list {
+      list-style: none;
+      margin: 1rem 0;
+    }
+    .resource-list li {
+      margin: 0.6rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    .resource-list li:before {
+      content: "✓";
+      color: var(--ocean-blue);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+    footer {
+      margin-top: 3rem;
+      text-align: center;
+      padding: 1.5rem;
+      background-color: var(--deep-teal);
+      color: white;
+      border-radius: 2rem 2rem 0 0;
+      font-size: 0.85rem;
+    }
+    .search-results {
+      background: #eef3f1;
+      padding: 1rem;
+      border-radius: 20px;
+      margin-top: 1rem;
+    }
+    .search-result-item {
+      padding: 0.8rem;
+      border-bottom: 1px solid var(--seafoam);
+      cursor: pointer;
+    }
+    .search-result-item:hover {
+      background: #d9eae7;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 12px 20px;
+      border-radius: 50px;
+      border: 1px solid var(--seafoam);
+      font-size: 1rem;
+      margin: 0.5rem 0 1rem;
+    }
+    @media (max-width: 780px) {
+      .container { padding: 1rem; }
+      .tab-btn { padding: 0.5rem 0.9rem; font-size: 0.8rem; }
+      .hero h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="hero">
+  <div class="container" style="padding: 0;">
+    <h1><i class="fas fa-volume-up"></i> Voices Over Bullying</h1>
+    <!-- <p>Speak up · Know your rights · End abuse and violence in schools</p> -->
+    <div class="school-badge"><i class="fas fa-school"></i> Campaign for every school community</div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="tabs-nav" id="tabsNav">
+    <button class="tab-btn active" data-tab="mission"><i class="fas fa-bullseye"></i> Our Mission</button>
+    <button class="tab-btn" data-tab="team"><i class="fas fa-users"></i> Our Team</button>
+    <button class="tab-btn" data-tab="whatwedo"><i class="fas fa-hand-peace"></i> What we do</button>
+    <button class="tab-btn" data-tab="whoserve"><i class="fas fa-heart"></i> Who we serve</button>
+    <button class="tab-btn" data-tab="getinvolved"><i class="fas fa-hands-helping"></i> Get involved</button>
+    <button class="tab-btn" data-tab="resources"><i class="fas fa-boxes"></i> Resources</button>
+    <button class="tab-btn" data-tab="donate"><i class="fas fa-donate"></i> Donate</button>
+    <button class="tab-btn" data-tab="contact"><i class="fas fa-envelope"></i> Contact</button>
+    <button class="tab-btn" data-tab="planning"><i class="fas fa-clipboard-list"></i> Planning</button>
+    <button class="tab-btn" data-tab="search"><i class="fas fa-search"></i> Search</button>
+  </div>
+
+  <!-- MISSION TAB (exactly from screenshots: aim + mission) -->
+  <div id="mission" class="tab-panel active-panel">
+    <h2><i class="fas fa-flag-checkered"></i> Our mission</h2>
+    <p><strong>Aim:</strong> The aim of the whole campaign is to try and decrease the number of abuse and violence in school.</p>
+    <p><strong>Mission:</strong> Create awareness in schools, educate learners, encourage reporting so everyone feels safe.</p>
+  </div>
+
+  <!-- TEAM TAB (group member names and numbers as provided) -->
+  <div id="team" class="tab-panel">
+    <h2><i class="fas fa-user-friends"></i> Our team</h2>
+    <div class="team-grid">
+      <div class="team-card"><i class="fas fa-user-circle"></i><h4>Blessing Imbile</h4><p>Student #26252434<br>Campaign Coordinator</p></div>
+      <div class="team-card"><i class="fas fa-user-graduate"></i><h4>Maria Rametsi</h4><p>Student #26250012<br>Research & Content</p></div>
+      <div class="team-card"><i class="fas fa-handshake"></i><h4>Kgosi Kanyane</h4><p>Student #25242473<br>Community Liaison</p></div>
+    </div>
+    <p>We are three education students united to reduce abuse and violence in schools. Our campaign is built on teamwork, research, and direct engagement with learners, teachers, and community members.</p>
+  </div>
+
+  <!-- WHAT WE DO (based on needs from screenshots: abuse/violence in school, reporting gaps) -->
+  <div id="whatwedo" class="tab-panel">
+    <h2><i class="fas fa-chalkboard-user"></i> What we do</h2>
+    <p>We address the urgent need to decrease abuse and violence in schools. Many learners do not know how to classify abuse or where to report. Our campaign provides education on different types of abuse, learners’ rights, and the importance of speaking up. We organize awareness sessions, create posters and educational materials, and build a website that students can easily access to help prevent abuse and violence. We also invite volunteer speakers (social workers, police officers) to present. Teachers help guide learners, and parents are informed and give their thoughts. Community members give talks on the subject. By Week 3 we launch the awareness campaign at school together with the website, and in Week 4 we collect feedback to improve.</p>
+  </div>
+
+  <!-- WHO WE SERVE (directly from screenshot: learners, teachers, parents, community) -->
+  <div id="whoserve" class="tab-panel">
+    <h2><i class="fas fa-child"></i> Who we serve</h2>
+    <p>We serve learners in primary schools who face abuse and violence. Teachers who need support in guiding learners through these situations are also key beneficiaries. Parents must be informed about the campaign and give out their thoughts, so we serve families as well. Finally, community members - social workers, police officers, local volunteers - are invited to give talks and become part of the solution. Our campaign aims to reach every person who can help a child feel safe. We believe that when learners know their rights and how to report, they can step above violence.</p>
+  </div>
+
+  <!-- GET INVOLVED (school & community involvement from screenshots) -->
+  <div id="getinvolved" class="tab-panel">
+    <h2><i class="fas fa-bullhorn"></i> Get involved</h2>
+    <p><strong>Teachers:</strong> Part take in helping and also guiding the learners through the situations of abuse and violence.</p>
+    <p><strong>Learners:</strong> Take part in activities</p>
+    <p><strong>Parents:</strong> Must be informed about the campaign and give out their thoughts on it.</p>
+    <p><strong>Community members:</strong> Give talks on the subject of the campaign.</p>
+    <p><strong>Volunteer speakers:</strong> We need social workers and police officers to present the campaign in classrooms or halls. Contact us to offer your time.</p>
+  </div>
+
+  <!-- RESOURCES (exactly from screenshot: materials, research, speakers, website skill, venue) -->
+  <div id="resources" class="tab-panel">
+    <h2><i class="fas fa-toolbox"></i> Necessary resources</h2>
+    <ul class="resource-list">
+      <li>Poster materials</li>
+      <li>Research of the campaign should be constructed</li>
+      <li>Volunteer speakers to present the campaign which includes social workers, police officer, etc.</li>
+      <li>The required skill to make a website</li>
+      <li>Classroom or hall for presentations</li>
+    </ul>
+  </div>
+
+  <!-- DONATE (no extra figures – only a simple request, no invented amounts) -->
+  <div id="donate" class="tab-panel">
+    <h2><i class="fas fa-hand-holding-heart"></i> Support the campaign</h2>
+    <p>At this stage, our campaign focuses on awareness, education, and volunteer efforts. If you wish to support us with materials for posters, printing, or venue arrangements, please reach out via the Contact tab. Your in‑kind contributions are welcome. We do not solicit monetary donations beyond what is directly needed for poster materials. Thank you for your solidarity.</p>
+    <br>
+    <p>To donate, please use the banking details below.</p>
+    <br>
+    <table class="table-plan">
+      <tr><th>Banking Details</th><th></th></tr>
+      <tr><td>Bank</td><td>Absa</td></tr>
+      <tr><td>Branch</td><td>632005</td></tr>
+      <tr><td>Account Holder</td><td>Voices Over Bullying</td></tr>
+      <tr><td>Account Number</td><td>1234567890</td></tr>
+    </table>
+  </div>
+
+  <!-- CONTACT (fictitious details as allowed in assignment, but minimal) -->
+  <div id="contact" class="tab-panel">
+    <h2><i class="fas fa-address-card"></i> Contact us</h2>
+    <p><strong>Blessing Imbile:</strong> blessing.imbile@voicesoverbullying.co.za<br>
+    <strong>Maria Rametsi:</strong> maria.rametsi@voicesoverbullying.co.za<br>
+    <strong>Kgosi Kanyane:</strong> kgosi.kanyane@voicesoverbullying.co.za<br>
+    <strong>Anonymous reporting / campaign inquiries:</strong> speakup@voicesoverbullying.co.za</p>
+    <p>For urgent child protection concerns, contact your local social worker or police. Our campaign is a school‑based awareness initiative.</p>
+  </div>
+
+  <!-- PLANNING (exact timeline and details from screenshot) -->
+  <div id="planning" class="tab-panel">
+    <h2><i class="fas fa-calendar-alt"></i> Campaign planning</h2>
+    <table class="table-plan">
+      <tr><th>Criteria</th><th>Details (from our campaign notes)</th></tr>
+      <tr><td>Name of the campaign</td><td>Voices Over Bullying</td></tr>
+      <tr><td>Needs of school‑community</td><td>Abuse and violence in schools; learners unable to classify abuse or report; learners need to know their rights and speak up.</td></tr>
+      <tr><td>Aim</td><td>Decrease the number of abuse and violence in school.</td></tr>
+      <tr><td>Mission</td><td>Create awareness in schools, educate learners, encourage reporting so everyone feels safe.</td></tr>
+      <tr><td>Timeline</td><td>Week 1: Start planning, research, share ideas, construct stories of abuse and violence.<br>
+      Week 2: Create posters and materials, hand out to schools or engage people.<br>
+      Week 3: Awareness campaign at school, create a website students can access to help prevent abuse and violence (present campaigns).<br>
+      Week 4: Feedback on progression, see what we can improve to maintain expectations.</td></tr>
+      <tr><td>Necessary resources</td><td>Poster materials, research of the campaign should be constructed, volunteer speakers to present the campaign which this includes social workers, police officers, etc. Classroom or hall for presentations.</td></tr>
+      <tr><td>School & community involvement</td><td>Teachers should part take in helping and also guiding the learners through the situations of abuse and violence. Learners must take part in activities. Parents must be informed about the campaign and give out their thoughts on it. Community members could give talks on the subject of the campaign.</td></tr>
+      <tr><td>Skills needed</td><td>Communication, teamwork, leadership, problem‑solving, decision‑making.</td></tr>
+      <tr><td>Research & references</td><td>UNICEF (n.d.) Violence against children; Focus Life Orientation Grade II Learner’s Book (2012).</td></tr>
+    </table>
+  </div>
+
+  <!-- SEARCH TAB (functional search across all panels) -->
+  <div id="search" class="tab-panel">
+    <h2><i class="fas fa-search"></i> Search the website</h2>
+    <input type="text" id="searchInput" placeholder="Type keywords: abuse, report, mission, timeline, speakers..." autocomplete="off">
+    <div id="searchResultsContainer" class="search-results">
+      <p><i class="fas fa-info-circle"></i> Enter a term to search across all campaign content. Click any result to jump to that tab.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // TABS
+  const tabs = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.tab-panel');
+  function activateTab(tabId) {
+    panels.forEach(p => p.classList.remove('active-panel'));
+    const active = document.getElementById(tabId);
+    if (active) active.classList.add('active-panel');
+    tabs.forEach(btn => {
+      btn.classList.remove('active');
+      if (btn.getAttribute('data-tab') === tabId) btn.classList.add('active');
+    });
+  }
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tabId = btn.getAttribute('data-tab');
+      activateTab(tabId);
+      if (tabId === 'search' && document.getElementById('searchInput').value) {
+        performSearch(document.getElementById('searchInput').value);
+      }
+    });
+  });
+
+  // SEARCH INDEX (exclude search panel itself)
+  function buildSearchIndex() {
+    const items = [];
+    document.querySelectorAll('.tab-panel').forEach(panel => {
+      if (panel.id === 'search') return;
+      const text = panel.innerText || panel.textContent;
+      const title = document.querySelector(`.tab-btn[data-tab="${panel.id}"]`)?.innerText.trim() || panel.id;
+      items.push({ id: panel.id, title, text: text.toLowerCase(), fullText: text });
+    });
+    return items;
+  }
+  function performSearch(query) {
+    const term = query.trim().toLowerCase();
+    const container = document.getElementById('searchResultsContainer');
+    if (!term) {
+      container.innerHTML = `<p><i class="fas fa-info-circle"></i> Enter a keyword to search across all tabs.</p>`;
+      return;
+    }
+    const index = buildSearchIndex();
+    const results = [];
+    index.forEach(item => {
+      if (item.text.includes(term)) {
+        let snippet = item.fullText.substring(0, 160).replace(/\n/g, ' ') + '…';
+        results.push({ id: item.id, title: item.title, snippet });
+      }
+    });
+    if (results.length === 0) {
+      container.innerHTML = `<p><i class="fas fa-search-minus"></i> No results for "${term}". Try "abuse", "report", "posters", "speakers", "timeline".</p>`;
+      return;
+    }
+    let html = `<p><strong>${results.length} result(s) for "${term}":</strong></p>`;
+    results.forEach(r => {
+      html += `<div class="search-result-item" data-tabid="${r.id}">
+                <i class="fas fa-folder-open"></i> <strong>${r.title}</strong><br>
+                <small>${r.snippet}</small>
+               </div>`;
+    });
+    container.innerHTML = html;
+    document.querySelectorAll('.search-result-item').forEach(el => {
+      el.addEventListener('click', () => {
+        const tabId = el.getAttribute('data-tabid');
+        if (tabId) activateTab(tabId);
+      });
+    });
+  }
+  const searchInput = document.getElementById('searchInput');
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => performSearch(e.target.value));
+  }
+</script>
+</body>
+</html>
